@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Checklist,
   DailyReport,
@@ -18,7 +18,7 @@ import {
   searchCrewByDrIdURL,
   searchDrEquipmentByDrIdURL,
   searchDRsByJobNumberAndDateURL,
-  searchDRsURL,
+  // searchDRsURL,
   searchDumpsterByDrIdURL,
   searchHazardsByJobNumberURL,
   searchPhotosByDrIdURL,
@@ -27,30 +27,32 @@ import {
 } from "./urls";
 
 export default () => {
-  const [jobSelected, setJobSelected] = useState<Job>({
-    jobsId: 7,
-    number: "2504",
-    type: "Structural",
-    name: "Lineage House Demo",
-    address: "11505 W. County Line Rd. Milwaukee, WI.",
-    contractor: "Lineage",
-    contact: "Bryan Russell",
-    status: "done",
-  });
+  const [jobSelected, setJobSelected] = useState<Job | undefined>(undefined);
 
   const { data: jobsData, loading: jobsLoading } = useHttpData<Job[]>(jobsURL);
 
+  useEffect(() => {
+    if (jobsData && jobsData.length > 0) {
+      const sortedJobs = [...jobsData].sort((a, b) => {
+        return Number(b.number) - Number(a.number);
+      });
+      if (!jobSelected) {
+        setJobSelected(sortedJobs[0]);
+      }
+    }
+  }, [jobsData, jobSelected]);
+
   const jobs = jobsData ? jobsData : [];
 
-  const {
-    data: dailyReportsData,
-    loading: dailyReportsLoading,
-    search: searchDR,
-  } = useHttpData<DailyReport[]>(searchDRsURL(jobSelected));
+  // const {
+  //   data: dailyReportsData,
+  //   loading: dailyReportsLoading,
+  //   search: searchDR,
+  // } = useHttpData<DailyReport[]>(searchDRsURL(jobSelected));
 
-  const searchDRData = (job: Job) => {
-    searchDR(searchDRsURL(job));
-  };
+  // const searchDRData = (job: Job) => {
+  //   searchDR(searchDRsURL(job));
+  // };
 
   const {
     data: dailyReportsData2,
@@ -177,9 +179,9 @@ export default () => {
     jobSelected,
     jobs,
     jobsLoading,
-    dailyReportsData,
-    dailyReportsLoading,
-    searchDRData,
+    // dailyReportsData,
+    // dailyReportsLoading,
+    // searchDRData,
     dailyReportsData2,
     dailyReportsLoading2,
     searchDRbyNumberAndDateData,

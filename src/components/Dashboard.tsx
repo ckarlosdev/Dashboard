@@ -12,7 +12,7 @@ type DailyReportSummary = {
 type Props = {
   jobsData: Job[];
   setJobSelected: (job: Job) => void;
-  jobSelected: Job;
+  jobSelected?: Job | undefined;
 };
 
 //  selectJob: Job | undefined;
@@ -121,15 +121,17 @@ function Dashboard({ jobsData, setJobSelected, jobSelected }: Props) {
         <div style={{ flex: "1 1 200px", minWidth: "200px" }}>
           <div className="card">
             <div className="card-header">
-              JobSelected: 
-              {" "}
-              <span style={{ fontWeight: "bold" }}>{jobSelected.number}</span>
-              {" "}
-              <span>{jobSelected.name}</span>
+              JobSelected:{" "}
+              <span style={{ fontWeight: "bold" }}>
+                {jobSelected ? jobSelected.number : ""}
+              </span>{" "}
+              <span>{jobSelected ? jobSelected.name : ""}</span>
               {" address: ("}
-              <span style={{ fontWeight: "bold" }}>{jobSelected.address}</span>
+              <span style={{ fontWeight: "bold" }}>
+                {jobSelected ? jobSelected.address : ""}
+              </span>
               {") "}
-              <span>{jobSelected.contractor}</span>
+              <span>{jobSelected ? jobSelected.contractor : ""}</span>
             </div>
             <Data
               jobSelected={jobSelected}

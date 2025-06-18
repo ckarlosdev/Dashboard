@@ -77,6 +77,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.concret40 : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.concret40 > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col>
@@ -85,6 +92,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.metal40 : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.metal40 > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col>
@@ -93,6 +107,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.cd40 : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.cd40 > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col style={{ background: "white" }}></Col>
@@ -110,6 +131,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.concret35 : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.concret35 > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col>
@@ -118,6 +146,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.metal35 : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.metal35 > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col>
@@ -126,6 +161,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.cd35 : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.cd35 > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col></Col>
@@ -143,6 +185,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.concret30 : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.concret30 > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col>
@@ -151,6 +200,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.metal30 : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.metal30 > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col>
@@ -159,6 +215,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.cd30 : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.cd30 > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col style={{ background: "white" }}></Col>
@@ -176,6 +239,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.concret20 : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.concret20 > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col>
@@ -184,6 +254,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.metal20 : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.metal20 > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col>
@@ -192,6 +269,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.cd20 : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.cd20 > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col></Col>
@@ -209,6 +293,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.concret12 : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.concret12 > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col>
@@ -217,6 +308,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.metal12 : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.metal12 > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col>
@@ -225,6 +323,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.cd12 : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.cd12 > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col style={{ background: "white" }}></Col>
@@ -242,6 +347,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.concretQuad : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.concretQuad > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col>
@@ -250,6 +362,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.metalQuad : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.metalQuad > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col>
@@ -258,6 +377,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.cdQuad : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.cdQuad > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col></Col>
@@ -275,6 +401,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.concretSemi : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.concretSemi > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col>
@@ -283,6 +416,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.metalSemi : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.metalSemi > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col>
@@ -291,6 +431,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.cdSemi : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.cdSemi > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col style={{ background: "white" }}></Col>
@@ -308,6 +455,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.concretGondola : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.concretGondola > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col>
@@ -316,6 +470,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.metalGondola : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.metalGondola > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col>
@@ -324,6 +485,13 @@ function DumpsterView({ drId }: Props) {
             type="text"
             readOnly
             value={dumpstersDetails ? dumpstersDetails.cdGondola : 0}
+            style={{
+              fontWeight: dumpstersDetails
+                ? dumpstersDetails.cdGondola > 0
+                  ? "bold"
+                  : "normal"
+                : 0,
+            }}
           />
         </Col>
         <Col></Col>
