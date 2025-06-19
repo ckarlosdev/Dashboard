@@ -76,7 +76,7 @@ function Total({ jobSelected }: Props) {
     }
   }, [dumpSummaryData]);
 
-    console.log(dumpsterSummary);
+    // console.log(dumpsterSummary);
 
   return (
     <div

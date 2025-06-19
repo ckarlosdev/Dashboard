@@ -67,9 +67,9 @@ function PhotoGallery({ photos, initialIndex = 0 }: Props) {
         <Button
           variant="secondary"
           onClick={handlePrev}
-          disabled={photos.length <= 1} 
+          disabled={photos.length <= 1}
         >
-          &larr; Anterior
+          &larr; Previous
         </Button>
         <span className="text-muted align-self-center">
           {currentIndex + 1} / {photos.length}
@@ -77,9 +77,9 @@ function PhotoGallery({ photos, initialIndex = 0 }: Props) {
         <Button
           variant="secondary"
           onClick={handleNext}
-          disabled={photos.length <= 1} 
+          disabled={photos.length <= 1}
         >
-          Siguiente &rarr;
+          Next &rarr;
         </Button>
       </div>
       <div>

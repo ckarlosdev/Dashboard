@@ -42,3 +42,6 @@ export const searchEmployeesHoursByJobNumberURL = (jobNumber: string) =>
 
 export const searchDumpsterSummaryByJobNumberURL = (jobNumber: string) =>
   `${base}/dumpster/summary/${jobNumber}`;
+
+export const searchDRsByJobNumberURL = (jobNumber: string) =>
+  `${base}/dailyReport/job/${jobNumber}`;

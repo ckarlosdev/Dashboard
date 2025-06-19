@@ -43,21 +43,6 @@ function HazardsView({ jobNumber, date }: Props) {
   return (
     <Form>
       <FormGroup>
-        <FloatingLabel
-          controlId="floatingInput"
-          label="Comments"
-          className="mb-3"
-        >
-          <Form.Control
-            readOnly
-            as="textarea"
-            value={
-              hazardDetails?.comment ? hazardDetails?.comment : "No comments"
-            }
-          />
-        </FloatingLabel>
-      </FormGroup>
-      <FormGroup>
         <Accordion>
           {hazardDetails?.activities?.map((activity) => (
             <Accordion.Item
@@ -117,6 +102,22 @@ function HazardsView({ jobNumber, date }: Props) {
               )
           )}
         </ListGroup>
+      </FormGroup>
+      <br></br>
+      <FormGroup>
+        <FloatingLabel
+          controlId="floatingInput"
+          label="Comments"
+          className="mb-3"
+        >
+          <Form.Control
+            readOnly
+            as="textarea"
+            value={
+              hazardDetails?.comment ? hazardDetails?.comment : "No comments"
+            }
+          />
+        </FloatingLabel>
       </FormGroup>
     </Form>
   );

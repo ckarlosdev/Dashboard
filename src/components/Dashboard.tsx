@@ -3,10 +3,16 @@ import FilterData from "./FilterData";
 import { generateDateRange } from "../utils/dateUtils";
 // import Button from "react-bootstrap/Button";
 // import Modal from "react-bootstrap/Modal";
-import { Job } from "../types";
+import { DailyReport, Job } from "../types";
 import Total from "./totals/Total";
 import Data from "./Data";
+import useHttpData from "../hooks/useHttpData";
+import { searchDRsByJobNumberURL } from "../hooks/urls";
 
+type dateRange = {
+  start: string;
+  end: string;
+};
 type DailyReportSummary = {
   date: string; // The date in MM/DD/YYYY format to match generatedDates
 };
@@ -20,6 +26,12 @@ type Props = {
 //   jobSelected: (job: Job) => void;
 
 function Dashboard({ jobsData, setJobSelected, jobSelected }: Props) {
+  const [dailyReports, setDailyReports] = useState<DailyReport[] | undefined>(
+    undefined
+  );
+
+  const [dates, setDates] = useState<dateRange | undefined>(undefined);
+
   const getTodayDate = () => {
     const today = new Date();
     const year = today.getFullYear();
@@ -37,7 +49,6 @@ function Dashboard({ jobsData, setJobSelected, jobSelected }: Props) {
   >([]);
 
   const dailyReportSummaries: DailyReportSummary[] = [];
-
   const handleDisplayData = () => {
     const newSummaryObjects: DailyReportSummary[] = [];
 
@@ -70,6 +81,41 @@ function Dashboard({ jobsData, setJobSelected, jobSelected }: Props) {
     // handleDisplayData();
   };
 
+  const { data: drData, search } = useHttpData<DailyReport[]>();
+  const getData = () => {
+    if (jobSelected) {
+      search(searchDRsByJobNumberURL(jobSelected.number));
+    }
+  };
+
+  useEffect(() => {
+    if (drData && drData.length > 0) {
+      setDailyReports(drData);
+    }
+  }, [drData]);
+
+  useEffect(() => {
+    if (dailyReports && dailyReports.length > 0) {
+      const sortedReports = [...dailyReports].sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        if (dateA.getTime() < dateB.getTime()) {
+          return -1;
+        }
+        if (dateA.getTime() > dateB.getTime()) {
+          return 1;
+        }
+        return 0;
+      });
+      // setDailyReports(sortedReports);
+      setDates({
+        start: sortedReports[0].date,
+        end: sortedReports[sortedReports.length - 1].date,
+      });
+      console.log(dates);
+    }
+  }, [dailyReports]);
+
   useEffect(() => {
     // Solo genera la lista si ambas fechas están definidas y no son vacías
     if (startDate && endDate) {
@@ -91,11 +137,12 @@ function Dashboard({ jobsData, setJobSelected, jobSelected }: Props) {
   }, [generatedDates, startDate, endDate]);
 
   useEffect(() => {
+    setDates(undefined);
     if (jobSelected) {
       handleDisplayData();
+      getData();
       // console.log("jobSelected: ", jobSelected);
-
-      console.log("job Selected: ", jobSelected.number);
+      // console.log("job Selected: ", jobSelected.number);
     }
   }, [jobSelected]);
 
@@ -105,7 +152,17 @@ function Dashboard({ jobsData, setJobSelected, jobSelected }: Props) {
         <div style={{ flex: "0 0 400px" }}>
           <div className="card h-100">
             <div className="card-header">
-              <span style={{ fontWeight: "bold" }}>Filters</span>
+              <span style={{ fontWeight: "bold", marginRight: "20px" }}>
+                Filters
+              </span>
+              {dates ? (
+                <span>
+                  Data: {dates.start.substring(0, 10)} :{" "}
+                  {dates.end.substring(0, 10)}
+                </span>
+              ) : (
+                <span>No data</span>
+              )}
             </div>
             <FilterData
               startDate={startDate}
@@ -127,18 +184,24 @@ function Dashboard({ jobsData, setJobSelected, jobSelected }: Props) {
         >
           <div className="card">
             <div className="card-header">
-              <span style={{ fontWeight: "bold", color: "Blue" }}>
-                Job Selected:
+              <span style={{ fontWeight: "bold", marginRight: "100px" }}>
+                Totals
               </span>{" "}
+              <span style={{ fontWeight: "bold" }}>Selected:</span>{" "}
+              <span>Job Number:</span>{" "}
               <span style={{ fontWeight: "bold" }}>
                 {jobSelected ? jobSelected.number : ""}
               </span>{" "}
-              <span>{jobSelected ? jobSelected.name : ""}</span>
+              <span>Job Name:</span>{" "}
+              <span style={{ fontWeight: "bold" }}>
+                {jobSelected ? jobSelected.name : ""}
+              </span>
               {" address: ("}
               <span style={{ fontWeight: "bold" }}>
                 {jobSelected ? jobSelected.address : ""}
               </span>
               {") "}
+              <span>Contractor:</span>{" "}
               <span>{jobSelected ? jobSelected.contractor : ""}</span>
             </div>
             <div className="card-body">
