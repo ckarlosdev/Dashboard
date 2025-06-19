@@ -1,0 +1,96 @@
+/* Contenedor principal para la dona, ayuda a centrarla si es necesario */
+.donut-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  width: 150px; /* Dale un tamaño fijo al contenedor de la dona */
+  height: 150px;
+  margin: 0 auto; /* Centra el contenedor si está dentro de un bloque más grande */
+}
+
+/* El elemento principal que forma la "dona" */
+.donut {
+  position: relative; /* Necesario para posicionar el contenido interno */
+  width: 120px; /* Ancho de la dona */
+  height: 120px; /* Alto de la dona (debe ser igual al ancho para un círculo) */
+  border-radius: 50%; /* Esto la hace circular */
+  border: 15px solid #007bff; /* Borde grueso para la parte visible de la dona */
+  /* Puedes usar un background-color aquí o dejarlo transparente */
+  background-color: transparent;
+  display: flex; /* Para centrar el contenido interno */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor para el número y la etiqueta */
+.donut-content {
+  position: absolute; /* Posiciona el contenido sobre el centro de la dona */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra el contenido perfectamente */
+  text-align: center;
+  color: #333; /* Color del texto */
+}
+
+/* Estilo para el número central */
+.donut-number {
+  font-size: 1.5em; /* Tamaño grande para el número */
+  font-weight: bold;
+  display: block; /* Para que 'Total' quede debajo */
+  line-height: 1; /* Ajusta el espacio de línea si es necesario */
+}
+
+/* Estilo para la etiqueta 'Total' */
+.donut-label {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #666;
+}
+
+/* Contenedor principal para la dona, ayuda a centrarla si es necesario */
+.donut-container-dumpster {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  width: 100px; /* Dale un tamaño fijo al contenedor de la dona */
+  height: 80px;
+  margin: 0 auto; /* Centra el contenedor si está dentro de un bloque más grande */
+}
+
+/* El elemento principal que forma la "dona" */
+.donut-dumpster {
+  position: relative; /* Necesario para posicionar el contenido interno */
+  width: 100px; /* Ancho de la dona */
+  height: 100px; /* Alto de la dona (debe ser igual al ancho para un círculo) */
+  border-radius: 50%; /* Esto la hace circular */
+  border: 15px solid #007bff; /* Borde grueso para la parte visible de la dona */
+  /* Puedes usar un background-color aquí o dejarlo transparente */
+  background-color: transparent;
+  display: flex; /* Para centrar el contenido interno */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor para el número y la etiqueta */
+.donut-content-dumpster {
+  position: absolute; /* Posiciona el contenido sobre el centro de la dona */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra el contenido perfectamente */
+  text-align: center;
+  color: #333; /* Color del texto */
+}
+
+/* Estilo para el número central */
+.donut-number-dumpster {
+  font-size: 2.5em; /* Tamaño grande para el número */
+  font-weight: bold;
+  display: block; /* Para que 'Total' quede debajo */
+  line-height: 1; /* Ajusta el espacio de línea si es necesario */
+}
+
+/* Estilo para la etiqueta 'Total' */
+.donut-label-dumpster {
+  font-size: 0.8em;
+  color: #666;
+}

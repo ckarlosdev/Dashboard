@@ -1,10 +1,11 @@
-import Data from "./Data";
 import { useEffect, useState } from "react";
 import FilterData from "./FilterData";
 import { generateDateRange } from "../utils/dateUtils";
 // import Button from "react-bootstrap/Button";
 // import Modal from "react-bootstrap/Modal";
 import { Job } from "../types";
+import Total from "./totals/Total";
+import Data from "./Data";
 
 type DailyReportSummary = {
   date: string; // The date in MM/DD/YYYY format to match generatedDates
@@ -103,7 +104,9 @@ function Dashboard({ jobsData, setJobSelected, jobSelected }: Props) {
       <div className="d-flex flex-wrap gap-3">
         <div style={{ flex: "0 0 400px" }}>
           <div className="card h-100">
-            <div className="card-header">Filters</div>
+            <div className="card-header">
+              <span style={{ fontWeight: "bold" }}>Filters</span>
+            </div>
             <FilterData
               startDate={startDate}
               endDate={endDate}
@@ -118,10 +121,15 @@ function Dashboard({ jobsData, setJobSelected, jobSelected }: Props) {
             />
           </div>
         </div>
-        <div style={{ flex: "1 1 200px", minWidth: "200px" }}>
+        <div
+          className="d-flex flex-column gap-3"
+          style={{ flex: "1 1 200px", minWidth: "200px" }}
+        >
           <div className="card">
             <div className="card-header">
-              JobSelected:{" "}
+              <span style={{ fontWeight: "bold", color: "Blue" }}>
+                Job Selected:
+              </span>{" "}
               <span style={{ fontWeight: "bold" }}>
                 {jobSelected ? jobSelected.number : ""}
               </span>{" "}
@@ -133,10 +141,20 @@ function Dashboard({ jobsData, setJobSelected, jobSelected }: Props) {
               {") "}
               <span>{jobSelected ? jobSelected.contractor : ""}</span>
             </div>
-            <Data
-              jobSelected={jobSelected}
-              summaries={summaryObjectsByDate}
-            ></Data>
+            <div className="card-body">
+              <Total jobSelected={jobSelected}></Total>
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-header">
+              <span style={{ fontWeight: "bold" }}>Details by day</span>
+            </div>
+            <div className="card-body">
+              <Data
+                jobSelected={jobSelected}
+                summaries={summaryObjectsByDate}
+              ></Data>
+            </div>
           </div>
         </div>
       </div>

@@ -168,3 +168,18 @@ export type Hazard = {
   activities: Activity[];
   pretasksOptionDtos: Option[];
 };
+
+export type DRSummary = {
+  type: string;
+  value: string;
+  count: number;
+};
+
+export type employeeSummary = {
+  drEmployeesId: number;
+  outHour: string;
+  inHour: string;
+  timeDifference: string;
+  totalHoursDecimal: number;
+  lunch: string;
+};

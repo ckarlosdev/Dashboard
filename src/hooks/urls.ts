@@ -34,6 +34,11 @@ export const searchHazardsByJobNumberURL = (number: string, date: string) =>
 export const searchChecklistsByDrIdURL = (number: string, date: string) =>
   `${base}/cl/${number}/by-date?date=${date}`;
 
-// export const searchMealsURL = (param: string) => `${base}search.php?s=${param}`;
+export const searchDrSummaryByJobNumberURL = (jobNumber: string) =>
+  `${base}/dailyReport/summary/${jobNumber}`;
 
-// export const mealDetailsURL = (param: string) => `${base}lookup.php?i=${param}`;
+export const searchEmployeesHoursByJobNumberURL = (jobNumber: string) =>
+  `${base}/drEmployee/hours/${jobNumber}`;
+
+export const searchDumpsterSummaryByJobNumberURL = (jobNumber: string) =>
+  `${base}/dumpster/summary/${jobNumber}`;
