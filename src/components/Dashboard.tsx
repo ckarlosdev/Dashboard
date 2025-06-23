@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import FilterData from "./FilterData";
-import { generateDateRange } from "../utils/dateUtils";
+import { formatedDate, generateDateRange } from "../utils/dateUtils";
 // import Button from "react-bootstrap/Button";
 // import Modal from "react-bootstrap/Modal";
 import { DailyReport, Job } from "../types";
@@ -157,8 +157,8 @@ function Dashboard({ jobsData, setJobSelected, jobSelected }: Props) {
               </span>
               {dates ? (
                 <span>
-                  Data: {dates.start.substring(0, 10)} :{" "}
-                  {dates.end.substring(0, 10)}
+                  {formatedDate(dates.start.substring(0, 10))} :{" "}
+                  {formatedDate(dates.end.substring(0, 10))}
                 </span>
               ) : (
                 <span>No data</span>
